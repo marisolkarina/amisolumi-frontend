@@ -1,0 +1,90 @@
+.container {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #fffaf7, #fdf3ed);
+}
+
+.container h1 {
+    font-size: 4.5rem;
+    color: #d89b7b;
+    margin-bottom: 16px;
+}
+
+.container h2 {
+    color: #5c4033;
+    margin-bottom: 18px;
+}
+
+.container p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.image {
+    width: 370px;
+    max-width: 90%;
+    margin-top: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.18);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.image:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 45px rgba(0,0,0,.25);
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .container {
+        padding: 32px 20px;
+    }
+
+    .container h1 {
+        font-size: 3rem;
+    }
+
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
+    .container p {
+        font-size: 1rem;
+    }
+
+    .image {
+        width: 320px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .container {
+        padding: 24px 16px;
+    }
+
+    .container h1 {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    .container h2 {
+        font-size: 1.2rem;
+    }
+
+    .container p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .image {
+        width: 260px;
+        margin-top: 24px;
+    }
+}

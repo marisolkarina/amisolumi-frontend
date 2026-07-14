@@ -1,0 +1,89 @@
+.container {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: #f8f5f2;
+}
+
+.form {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form h1 {
+    text-align: center;
+    color: #8f5f45;
+    font-size: 2rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-top: -10px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-weight: 600;
+    color: #444;
+}
+
+.field input {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #d8d8d8;
+    font-size: 1rem;
+    transition: .25s;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: #d89b7b;
+    box-shadow: 0 0 0 3px rgba(216,155,123,.2);
+}
+
+button {
+    margin-top: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #d89b7b;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+
+button:hover {
+    background: #c47d5b;
+}
+
+.register {
+    text-align: center;
+    color: #666;
+}
+
+.register .linkRegister {
+    color: #d89b7b;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.register .linkRegister:hover {
+    text-decoration: underline;
+}
