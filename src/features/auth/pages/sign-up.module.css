@@ -37,7 +37,7 @@
     color: #555;
 }
 
-.field input {
+.field input, select {
     padding: 12px;
     border: 1px solid #d9d9d9;
     border-radius: 8px;
@@ -46,7 +46,7 @@
     transition: .2s;
 }
 
-.field input:focus {
+.field input:focus, select:focus {
     border-color: #d89b7b;
     box-shadow: 0 0 0 3px rgba(216,155,123,.2);
 }

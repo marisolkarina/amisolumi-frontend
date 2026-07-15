@@ -5,7 +5,8 @@ export async function postSignUp({
     direccion,
     dni,
     username,
-    fechaNacimiento
+    fechaNacimiento,
+    rol
 }) {
 
     const response = await fetch(
@@ -23,7 +24,8 @@ export async function postSignUp({
                 dni,
                 username,
                 fechaNacimiento,
-                rol: "USER"
+                rol
+                //rol: "USER"
             })
         }
     );

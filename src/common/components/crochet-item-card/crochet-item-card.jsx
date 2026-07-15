@@ -1,8 +1,13 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import styles from "./crochet-item-card.module.css";
 import { useAddItemToCart } from "../../../features/cart/hooks/use-add-item-to-cart";
+import { useAuth } from "../../../features/auth/hooks/use-auth";
 
 export function CrochetItemCard({ crochetItem }) {
+
+    const { user } = useAuth();
+    const isAuthenticated = !!user?.token;
+    const navigate = useNavigate();
 
     const {
         id,
@@ -17,6 +22,9 @@ export function CrochetItemCard({ crochetItem }) {
 
     async function handleAddToCart() {
         try {
+            if (!isAuthenticated) {
+                navigate("/sign-in");
+            }
 
             await addItemToCart({
                 tejidoId: id,
@@ -26,7 +34,7 @@ export function CrochetItemCard({ crochetItem }) {
             alert("Tejido agregado al carrito");
 
         } catch (error) {
-            alert(error.message);
+            console.log(error.message);
         }
     }
 

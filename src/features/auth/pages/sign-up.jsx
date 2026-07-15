@@ -16,7 +16,8 @@ export function SignUpPage() {
         direccion: "",
         dni: "",
         username: "",
-        fechaNacimiento: ""
+        fechaNacimiento: "",
+        rol: ""
     });
 
     function handleChange(e) {
@@ -65,6 +66,14 @@ export function SignUpPage() {
                             onChange={handleChange}
                             required
                         />
+                    </div>
+
+                    <div className={styles.field}>
+                        <label>Rol</label>
+                        <select name="rol" id="rol" onChange={handleChange}>
+                            <option value="USER">USER</option>
+                            <option value="ADMIN">ADMIN</option>
+                        </select>
                     </div>
 
                     <div className={styles.field}>

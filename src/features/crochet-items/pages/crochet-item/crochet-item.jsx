@@ -1,17 +1,42 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import styles from "./crochet-item.module.css";
 import { useGetCrochetItemById } from "../../hooks/use-get-crochet-item-by-id";
 import { Gift, Send, Spool } from "lucide-react";
+import { useAuth } from "../../../auth/hooks/use-auth";
+import { useAddItemToCart } from "../../../cart/hooks/use-add-item-to-cart";
 
 export function CrochetItemPage() {
     const { id } = useParams();
 
     const { crochetItem, loading, error } = useGetCrochetItemById({ crochetItemId: id });
 
+    const { nombre, descripcion, precio, imagen, tiempoProduccion } = crochetItem;
+
+    const { user } = useAuth();
+    const isAuthenticated = !!user?.token;
+    const navigate = useNavigate();
+    const { addItemToCart } = useAddItemToCart();
+
+    async function handleAddToCart() {
+        try {
+            if (!isAuthenticated) {
+                navigate("/sign-in");
+            }
+
+            await addItemToCart({
+                tejidoId: id,
+                cantidad: 1,
+            });
+
+            alert("Tejido agregado al carrito");
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     if (error) return <h1>{error}</h1>;
     if (loading) return <h1>Loading...</h1>;
-
-    const { nombre, descripcion, precio, imagen, tiempoProduccion } = crochetItem;
 
     return (
         <div className={styles.container}>
@@ -39,7 +64,7 @@ export function CrochetItemPage() {
                         </p>
                     </div>
 
-                    <button className={styles.cartButton}>
+                    <button className={styles.cartButton} onClick={handleAddToCart}>
                         Agregar al carrito
                     </button>
                 </div>
